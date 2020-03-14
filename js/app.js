@@ -57,6 +57,18 @@ function getLocal() {
         console.log(selectedImagesArray);
     }
     renderImages();
+
+
+    for (var i = 0; i < selectedImagesArray.length; i++) {
+
+        var selectedImages = document.getElementById('selectedImgSection');
+        var imageSelected1 = document.createElement('img');
+        selectedImages.appendChild(imageSelected1);
+        imageSelected1.setAttribute('src', selectedImagesArray[i].imgPath);
+        imageSelected1.setAttribute('title', selectedImagesArray[i].name);
+        imageSelected1.setAttribute('alt', selectedImagesArray[i].name);
+    }
+
 }
 
 
@@ -116,36 +128,45 @@ renderImages();
 var imagesSection = document.getElementById('chooseImgSection');
 imagesSection.addEventListener('click', gameClick);
 
+
+
 function gameClick(event) {
 
+    var selectedImages = document.getElementById('selectedImgSection');
+    var imageSelected1 = document.createElement('img');
+    selectedImages.appendChild(imageSelected1);
 
     totalClicks++;
 
     if (totalClicks < 6) {
 
-        var selectedImages = document.getElementById('selectedImgSection');
-        var imageSelected1 = document.createElement('img');
-        selectedImages.appendChild(imageSelected1);
 
         if (event.target.id === 'first') {
 
             firstGame.clicks++;
 
-            renderSelected(firstGame);
+            imageSelected1.setAttribute('src', firstGame.imgPath);
+            imageSelected1.setAttribute('title', firstGame.name);
+            imageSelected1.setAttribute('alt', firstGame.name);
+            selectedImagesArray.push(firstGame);
 
         } else if (event.target.id === 'second') {
 
             secondGame.clicks++;
 
-            renderSelected(secondGame);
-
+            imageSelected1.setAttribute('src', secondGame.imgPath);
+            imageSelected1.setAttribute('title', secondGame.name);
+            imageSelected1.setAttribute('alt', secondGame.name);
+            selectedImagesArray.push(secondGame);
 
         } else if (event.target.id === 'third') {
 
             thirdGame.clicks++;
 
-            renderSelected(thirdGame);
-
+            imageSelected1.setAttribute('src', thirdGame.imgPath);
+            imageSelected1.setAttribute('title', thirdGame.name);
+            imageSelected1.setAttribute('alt', thirdGame.name);
+            selectedImagesArray.push(thirdGame);
         }
         sendLocal();
 
@@ -166,12 +187,9 @@ getLocal();
 
 
 
-function renderSelected(gameD){
+function renderSelected(gameD) {
 
-    imageSelected1.setAttribute('src', gameD.imgPath);
-    imageSelected1.setAttribute('title', gameD.name);
-    imageSelected1.setAttribute('alt', gameD.name);
-    selectedImagesArray.push(gameD);
+
     return gameD;
 
 }
