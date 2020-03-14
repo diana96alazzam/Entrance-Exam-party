@@ -1,0 +1,29 @@
+#chooseImgSection div img {
+    text-align: center; 
+    
+}
+
+#chooseImgSection div {
+    display: inline-block;
+    
+}
+
+#firstImg img {
+    width: 300px;
+    height: 300px;
+}
+
+#secondImg img{
+    width: 300px;
+    height: 300px;
+}
+
+#thirdImg img {
+    width: 300px;
+    height: 300px;
+}
+
+#selectedImgSection img {
+    width: 200px;
+    height: 200px;
+}
